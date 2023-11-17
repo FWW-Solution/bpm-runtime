@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="fww_solution">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="ADMIN">
+      <firstName>Admin</firstName>
+      <lastName>Admin</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="User">
+      <firstName>User</firstName>
+      <lastName>User</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="Application">
+      <firstName>Application</firstName>
+      <lastName>Application</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="User">
+      <displayName>User</displayName>
+    </role>
+    <role name="Application">
+      <displayName>Application</displayName>
+    </role>
+    <role name="Admin">
+      <displayName>Admin</displayName>
+    </role>
+  </roles>
+  <groups/>
+  <memberships/>
+</organization:Organization>
