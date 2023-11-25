@@ -4459,7 +4459,7 @@
         </elements>
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_CkJtoIVEEe6tqtrNPEic8A" name="User" actor="_EqcrwIVEEe6tqtrNPEic8A">
-        <elements xmi:type="process:Task" xmi:id="_HqjZAIU_Ee6tqtrNPEic8A" name="Do Payment" outgoing="_Hnz6wIdzEe698aema4xU8A" incoming="_rKW28IdXEe67ydDxKxP2FQ" actor="_EqcrwIVEEe6tqtrNPEic8A" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_HqjZAIU_Ee6tqtrNPEic8A" name="Do Payment" outgoing="_Hnz6wIdzEe698aema4xU8A _Dr3HoItaEe6F6N-2eampTg" incoming="_rKW28IdXEe67ydDxKxP2FQ" actor="_EqcrwIVEEe6tqtrNPEic8A" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_HqkAEYU_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_HqkAEIU_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_HqkAEoU_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
@@ -4941,7 +4941,7 @@
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_HqkAG4U_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_PiHLIIU_Ee6tqtrNPEic8A" name="Redeem Ticket" outgoing="_dDRqEIU_Ee6tqtrNPEic8A" incoming="_Q7pJ4IU_Ee6tqtrNPEic8A" actor="_EqcrwIVEEe6tqtrNPEic8A" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_PiHLIIU_Ee6tqtrNPEic8A" name="Redeem Ticket" outgoing="_dDRqEIU_Ee6tqtrNPEic8A _E1MuQItaEe6F6N-2eampTg" incoming="_Q7pJ4IU_Ee6tqtrNPEic8A" actor="_EqcrwIVEEe6tqtrNPEic8A" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_PiHLIoU_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_PiHLIYU_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_PiHLI4U_Ee6tqtrNPEic8A" name="" content="" returnTypeFixed="true"/>
@@ -5280,6 +5280,17 @@
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_Cl2sY4jqEe6nMdjcWuvY9A" type="ASSIGNMENT"/>
           </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_gA5OEItbEe6F6N-2eampTg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gA5OEYtbEe6F6N-2eampTg" name="booking_expired_at" content="booking_expired_at" type="TYPE_VARIABLE" returnType="java.util.Date">
+              <referencedElements xmi:type="process:Data" xmi:id="_gwVuAItbEe6F6N-2eampTg" name="booking_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gA5OEotbEe6F6N-2eampTg" name="newScript()" content="booking_expired" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.Date">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_z-K00ItbEe6F6N-2eampTg" name="booking_expired" type="OFFSETDATETIME">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_z-K00YtbEe6F6N-2eampTg"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gA5OE4tbEe6F6N-2eampTg" type="ASSIGNMENT"/>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_PiHLJIU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_PiHLJYU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_PiHLJoU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -5304,20 +5315,27 @@
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_zSKBMYjbEe6a1LUkZYlUPA"/>
               </inputs>
             </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_XcAb4ItbEe6F6N-2eampTg" name="booking_expired" type="OFFSETDATETIME">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_XcAb4YtbEe6F6N-2eampTg"/>
+            </inputs>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_PiHLLIU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:IntermediateCatchTimerEvent" xmi:id="_9hZRMIkvEe6WeYpf0W8c6w" name="set Payment Expired" outgoing="_k-K9kIkwEe6WeYpf0W8c6w">
+        <elements xmi:type="process:IntermediateCatchTimerEvent" xmi:id="_9hZRMIkvEe6WeYpf0W8c6w" name="set Payment Expired" outgoing="_k-K9kIkwEe6WeYpf0W8c6w" incoming="_Dr3HoItaEe6F6N-2eampTg">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_9hc7kIkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_9hcUgIkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_9hc7kYkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
-          <condition xmi:type="expression:Expression" xmi:id="_E5GekIkwEe6WeYpf0W8c6w"/>
+          <condition xmi:type="expression:Expression" xmi:id="_E5GekIkwEe6WeYpf0W8c6w" name="newScript()" content="payment_expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <referencedElements xmi:type="process:Data" xmi:id="_Vgg_kItbEe6F6N-2eampTg" name="payment_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+          </condition>
         </elements>
-        <elements xmi:type="process:IntermediateCatchTimerEvent" xmi:id="_BQR9wIkwEe6WeYpf0W8c6w" name="set Booking Expired" outgoing="_mUl98IkwEe6WeYpf0W8c6w">
+        <elements xmi:type="process:IntermediateCatchTimerEvent" xmi:id="_BQR9wIkwEe6WeYpf0W8c6w" name="set Booking Expired" outgoing="_mUl98IkwEe6WeYpf0W8c6w" incoming="_E1MuQItaEe6F6N-2eampTg">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_BQVoIYkwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_BQVoIIkwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_BQVoIokwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
-          <condition xmi:type="expression:Expression" xmi:id="_DOEgIIkwEe6WeYpf0W8c6w"/>
+          <condition xmi:type="expression:Expression" xmi:id="_DOEgIIkwEe6WeYpf0W8c6w" name="newScript()" content="booking_expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <referencedElements xmi:type="process:Data" xmi:id="_qXz-kItbEe6F6N-2eampTg" name="booking_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+          </condition>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_Cx8d0IcMEe67ydDxKxP2FQ" name="passanger" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Passanger">
@@ -5350,6 +5368,16 @@
       </data>
       <data xmi:type="process:Data" xmi:id="_7XpZQIjpEe6nMdjcWuvY9A" name="booking_detail_ids" multiple="true" dataType="_0Zm0ToU7Ee60zYC5i_hnmg">
         <defaultValue xmi:type="expression:Expression" xmi:id="_7XpZQYjpEe6nMdjcWuvY9A" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
+      </data>
+      <data xmi:type="process:Data" xmi:id="_LYAegItbEe6F6N-2eampTg" name="payment_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_LYAegYtbEe6F6N-2eampTg" name="init_payment_expired_at()" content="payment_expired" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.Date">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_SMK58ItbEe6F6N-2eampTg" name="payment_expired" type="OFFSETDATETIME">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_SMK58YtbEe6F6N-2eampTg"/>
+          </referencedElements>
+        </defaultValue>
+      </data>
+      <data xmi:type="process:Data" xmi:id="_eu_hUItbEe6F6N-2eampTg" name="booking_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_eu_hUYtbEe6F6N-2eampTg" content="" returnType="java.util.Date"/>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_HAkIP4U8Ee60zYC5i_hnmg" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_QW0gYoVREe6tqtrNPEic8A" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -5457,6 +5485,14 @@
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_rsHrwYm-Ee6oiOlnIxCsSQ"/>
         <condition xmi:type="expression:Expression" xmi:id="_rsHrwom-Ee6oiOlnIxCsSQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_Dr3HoItaEe6F6N-2eampTg" target="_9hZRMIkvEe6WeYpf0W8c6w" source="_HqjZAIU_Ee6tqtrNPEic8A">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_Dr4VwItaEe6F6N-2eampTg"/>
+        <condition xmi:type="expression:Expression" xmi:id="_Dr4VwYtaEe6F6N-2eampTg" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="_E1MuQItaEe6F6N-2eampTg" target="_BQR9wIkwEe6WeYpf0W8c6w" source="_PiHLIIU_Ee6tqtrNPEic8A">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="_E1NVUItaEe6F6N-2eampTg"/>
+        <condition xmi:type="expression:Expression" xmi:id="_E1NVUYtaEe6F6N-2eampTg" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
       <actors xmi:type="process:Actor" xmi:id="_3M_oIIVDEe6tqtrNPEic8A" name="Application" initiator="true"/>
       <actors xmi:type="process:Actor" xmi:id="_EqcrwIVEEe6tqtrNPEic8A" name="User"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_NHwF8IcKEe67ydDxKxP2FQ" name="baseUrl" typeClassname="java.lang.String"/>
@@ -5465,6 +5501,9 @@
       <contract xmi:type="process:Contract" xmi:id="_HAkIQ4U8Ee60zYC5i_hnmg">
         <inputs xmi:type="process:ContractInput" xmi:id="_Alh0gIdXEe67ydDxKxP2FQ" name="code_booking">
           <mapping xmi:type="process:ContractInputMapping" xmi:id="_Alh0gYdXEe67ydDxKxP2FQ"/>
+        </inputs>
+        <inputs xmi:type="process:ContractInput" xmi:id="_CNlWUItbEe6F6N-2eampTg" name="payment_expired" type="OFFSETDATETIME">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_CNlWUYtbEe6F6N-2eampTg"/>
         </inputs>
       </contract>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_HAkIMIU8Ee60zYC5i_hnmg">
@@ -5673,13 +5712,13 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_9hf-4IkvEe6WeYpf0W8c6w" type="5032">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_9hf-4YkvEe6WeYpf0W8c6w" y="5"/>
               </children>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9hfX0YkvEe6WeYpf0W8c6w" x="372" y="38"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9hfX0YkvEe6WeYpf0W8c6w" x="399" y="38"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_BQXdUIkwEe6WeYpf0W8c6w" type="3017" element="_BQR9wIkwEe6WeYpf0W8c6w" fontName="Ubuntu">
               <children xmi:type="notation:DecorationNode" xmi:id="_BQYEYIkwEe6WeYpf0W8c6w" type="5032">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_BQYrcIkwEe6WeYpf0W8c6w" y="5"/>
               </children>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BQXdUYkwEe6WeYpf0W8c6w" x="650" y="37"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BQXdUYkwEe6WeYpf0W8c6w" x="719" y="42"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_CkKUsYVEEe6tqtrNPEic8A"/>
@@ -5904,7 +5943,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_k-WjwYkwEe6WeYpf0W8c6w" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_k-SSUYkwEe6WeYpf0W8c6w" fontName="Ubuntu"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k-SSUokwEe6WeYpf0W8c6w" points="[-13, -30, -24, 139]$[9, -165, -2, 4]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_k-SSUokwEe6WeYpf0W8c6w" points="[-16, -30, 0, 139]$[-16, -165, 0, 4]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k-ftsIkwEe6WeYpf0W8c6w" id="(1.0,1.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k-ftsYkwEe6WeYpf0W8c6w" id="(0.425,0.9333333333333333)"/>
     </edges>
@@ -5913,7 +5952,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_mUqPYYkwEe6WeYpf0W8c6w" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_mUpoUYkwEe6WeYpf0W8c6w" fontName="Ubuntu"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mUpoUokwEe6WeYpf0W8c6w" points="[-9, -28, -57, 109]$[50, -126, 2, 11]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mUpoUokwEe6WeYpf0W8c6w" points="[-16, -29, -5, 105]$[-16, -121, -5, 13]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mU0ncIkwEe6WeYpf0W8c6w" id="(1.0,0.9666666666666667)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mU0ncYkwEe6WeYpf0W8c6w" id="(0.5333333333333333,0.8166666666666667)"/>
     </edges>
@@ -5957,6 +5996,23 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_rsIS0Ym-Ee6oiOlnIxCsSQ" fontName=".AppleSystemUIFont"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rsIS0om-Ee6oiOlnIxCsSQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Dr480ItaEe6F6N-2eampTg" type="4001" element="_Dr3HoItaEe6F6N-2eampTg" source="_HqrU0IU_Ee6tqtrNPEic8A" target="_9hfX0IkvEe6WeYpf0W8c6w" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Dr5j4ItaEe6F6N-2eampTg" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Dr5j4YtaEe6F6N-2eampTg" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_Dr480YtaEe6F6N-2eampTg" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Dr480otaEe6F6N-2eampTg" points="[0, 4, -136, 44]$[141, 4, 5, 44]$[141, -35, 5, 5]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Dr6yAItaEe6F6N-2eampTg" id="(1.0,0.62)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Dr6yAYtaEe6F6N-2eampTg" id="(0.3,0.8)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_E1N8YItaEe6F6N-2eampTg" type="4001" element="_E1MuQItaEe6F6N-2eampTg" source="_PiHyMIU_Ee6tqtrNPEic8A" target="_BQXdUIkwEe6WeYpf0W8c6w" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="_E1N8Y4taEe6F6N-2eampTg" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_E1N8ZItaEe6F6N-2eampTg" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_E1N8YYtaEe6F6N-2eampTg" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E1N8YotaEe6F6N-2eampTg" points="[0, 6, -153, 49]$[152, 6, -1, 49]$[152, -29, -1, 14]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E1PxkItaEe6F6N-2eampTg" id="(1.0,0.58)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
