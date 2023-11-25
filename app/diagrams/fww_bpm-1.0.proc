@@ -1608,6 +1608,17 @@
               <operator xmi:type="expression:Operator" xmi:id="_gBKAKIdVEe67ydDxKxP2FQ" type="ASSIGNMENT"/>
             </outputs>
           </connectors>
+          <operations xmi:type="expression:Operation" xmi:id="_fmoi4It6Ee6JlIP_XzlIiw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_fmoi4Yt6Ee6JlIP_XzlIiw" name="payment" content="payment" type="TYPE_VARIABLE" returnType="fww.model.Payment">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_hPhMQIt6Ee6JlIP_XzlIiw" name="payment" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Payment"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_fmoi4ot6Ee6JlIP_XzlIiw" name="newScript()" content="payment_expired_at.toOffsetDateTime()" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
+              <referencedElements xmi:type="process:Data" xmi:id="_wkIFUIunEe6IKofDUv85EA" name="payment_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_fmoi44t6Ee6JlIP_XzlIiw" type="JAVA_METHOD" expression="setExpired_at">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_4N0lRIU-Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_4N0lRYU-Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_4N0lRoU-Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -4169,7 +4180,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_WTcOz4kwEe6WeYpf0W8c6w" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_WTcO0IkwEe6WeYpf0W8c6w" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:ServiceTask" xmi:id="_cXy9oIkwEe6WeYpf0W8c6w" name="Update Booking Status (todo update rest)" outgoing="_sboNoIkwEe6WeYpf0W8c6w" incoming="_mUl98IkwEe6WeYpf0W8c6w">
+        <elements xmi:type="process:ServiceTask" xmi:id="_cXy9oIkwEe6WeYpf0W8c6w" name="Update Booking Status" outgoing="_sboNoIkwEe6WeYpf0W8c6w" incoming="_mUl98IkwEe6WeYpf0W8c6w">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_cXy9oYkwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_cXy9ookwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_cXy9o4kwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
@@ -4305,11 +4316,11 @@
               <operator xmi:type="expression:Operator" xmi:id="_cXy9-4kwEe6WeYpf0W8c6w" type="ASSIGNMENT"/>
             </outputs>
           </connectors>
-          <connectors xmi:type="process:Connector" xmi:id="_cXy9_IkwEe6WeYpf0W8c6w" name="Update Payment Status" definitionId="rest-put" event="ON_ENTER" definitionVersion="1.3.0">
+          <connectors xmi:type="process:Connector" xmi:id="_cXy9_IkwEe6WeYpf0W8c6w" name="Update Booking Status" definitionId="rest-put" event="ON_ENTER" definitionVersion="1.3.0">
             <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_cXy9_YkwEe6WeYpf0W8c6w" definitionId="rest-put" version="1.3.0" modelVersion="7.12.0-004">
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_cXy9_okwEe6WeYpf0W8c6w" key="url">
-                <expression xmi:type="expression:Expression" xmi:id="_cXy9_4kwEe6WeYpf0W8c6w" name="url()" content="baseUrl+'/api/private/v1/payment'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_cXy-AIkwEe6WeYpf0W8c6w" name="baseUrl" typeClassname="java.lang.String"/>
+                <expression xmi:type="expression:Expression" xmi:id="_cXy9_4kwEe6WeYpf0W8c6w" name="url()" content="baseUrl+'/api/private/v1/booking'" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                  <referencedElements xmi:type="parameter:Parameter" xmi:id="_pK7ZEIt5Ee6JlIP_XzlIiw" name="baseUrl" typeClassname="java.lang.String"/>
                 </expression>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_cXy-AYkwEe6WeYpf0W8c6w" key="contentType">
@@ -4325,10 +4336,10 @@
                 <expression xmi:type="expression:TableExpression" xmi:id="_cXy-CIkwEe6WeYpf0W8c6w"/>
               </parameters>
               <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_cXy-CYkwEe6WeYpf0W8c6w" key="body">
-                <expression xmi:type="expression:Expression" xmi:id="_cXy-CokwEe6WeYpf0W8c6w" name="&lt;pattern-expression>" content="{&#xA;&#x9;&quot;invoice_number&quot;: &quot;${payment.invoice_number}&quot;,&#xA;&#x9;&quot;status&quot;: &quot;paid&quot;&#xA;}" type="TYPE_PATTERN" returnTypeFixed="true">
-                  <referencedElements xmi:type="expression:Expression" xmi:id="_cXy-C4kwEe6WeYpf0W8c6w" name="payment.invoice_number" content="payment.invoice_number" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-                    <referencedElements xmi:type="expression:Expression" xmi:id="_cXy-DIkwEe6WeYpf0W8c6w" name="payment" content="payment" type="TYPE_VARIABLE" returnType="fww.model.Payment">
-                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_cXy-DYkwEe6WeYpf0W8c6w" name="payment" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Payment"/>
+                <expression xmi:type="expression:Expression" xmi:id="_cXy-CokwEe6WeYpf0W8c6w" name="&lt;pattern-expression>" content="{&#xA;&#x9;&quot;code_booking&quot;: &quot;${booking.code_booking}&quot;,&#xA;&#x9;&quot;status&quot;: &quot;expired&quot;&#xA;}" type="TYPE_PATTERN" returnTypeFixed="true">
+                  <referencedElements xmi:type="expression:Expression" xmi:id="_meirUIt5Ee6JlIP_XzlIiw" name="booking.code_booking" content="booking.code_booking" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+                    <referencedElements xmi:type="expression:Expression" xmi:id="_meirUYt5Ee6JlIP_XzlIiw" name="booking" content="booking" type="TYPE_VARIABLE" returnType="fww.model.Booking">
+                      <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_meirUot5Ee6JlIP_XzlIiw" name="booking" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Booking"/>
                     </referencedElements>
                   </referencedElements>
                 </expression>
@@ -4917,6 +4928,19 @@
               <inputTypes>java.lang.Double</inputTypes>
             </operator>
           </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_HRot8It6Ee6JlIP_XzlIiw">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_HRot8Yt6Ee6JlIP_XzlIiw" name="booking" content="booking" type="TYPE_VARIABLE" returnType="fww.model.Booking">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Qs2rMIt6Ee6JlIP_XzlIiw" name="booking" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Booking"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_HRot8ot6Ee6JlIP_XzlIiw" name="newScript()" content="booking_expired" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.OffsetDateTime">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_b5wSkIuoEe6IKofDUv85EA" name="booking_expired" type="OFFSETDATETIME">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_b5wSkYuoEe6IKofDUv85EA"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_HRot84t6Ee6JlIP_XzlIiw" type="JAVA_METHOD" expression="setExpired_at">
+              <inputTypes>java.time.OffsetDateTime</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_HqkAE4U_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_HqkAFIU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_HqkAFYU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -4937,6 +4961,9 @@
             </inputs>
             <inputs xmi:type="process:ContractInput" xmi:id="_8K_woIdbEe67ydDxKxP2FQ" name="case_id" type="INTEGER">
               <mapping xmi:type="process:ContractInputMapping" xmi:id="_8K_woYdbEe67ydDxKxP2FQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_7wHykIt5Ee6JlIP_XzlIiw" name="booking_expired" type="OFFSETDATETIME">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_7wHykYt5Ee6JlIP_XzlIiw"/>
             </inputs>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_HqkAG4U_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -5280,17 +5307,6 @@
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_Cl2sY4jqEe6nMdjcWuvY9A" type="ASSIGNMENT"/>
           </operations>
-          <operations xmi:type="expression:Operation" xmi:id="_gA5OEItbEe6F6N-2eampTg">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_gA5OEYtbEe6F6N-2eampTg" name="booking_expired_at" content="booking_expired_at" type="TYPE_VARIABLE" returnType="java.util.Date">
-              <referencedElements xmi:type="process:Data" xmi:id="_gwVuAItbEe6F6N-2eampTg" name="booking_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
-            </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_gA5OEotbEe6F6N-2eampTg" name="newScript()" content="booking_expired" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.Date">
-              <referencedElements xmi:type="process:ContractInput" xmi:id="_z-K00ItbEe6F6N-2eampTg" name="booking_expired" type="OFFSETDATETIME">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="_z-K00YtbEe6F6N-2eampTg"/>
-              </referencedElements>
-            </rightOperand>
-            <operator xmi:type="expression:Operator" xmi:id="_gA5OE4tbEe6F6N-2eampTg" type="ASSIGNMENT"/>
-          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_PiHLJIU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_PiHLJYU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_PiHLJoU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -5315,9 +5331,6 @@
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_zSKBMYjbEe6a1LUkZYlUPA"/>
               </inputs>
             </inputs>
-            <inputs xmi:type="process:ContractInput" xmi:id="_XcAb4ItbEe6F6N-2eampTg" name="booking_expired" type="OFFSETDATETIME">
-              <mapping xmi:type="process:ContractInputMapping" xmi:id="_XcAb4YtbEe6F6N-2eampTg"/>
-            </inputs>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_PiHLLIU_Ee6tqtrNPEic8A" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
@@ -5325,16 +5338,16 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_9hc7kIkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_9hcUgIkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_9hc7kYkvEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
-          <condition xmi:type="expression:Expression" xmi:id="_E5GekIkwEe6WeYpf0W8c6w" name="newScript()" content="payment_expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-            <referencedElements xmi:type="process:Data" xmi:id="_Vgg_kItbEe6F6N-2eampTg" name="payment_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+          <condition xmi:type="expression:Expression" xmi:id="_E5GekIkwEe6WeYpf0W8c6w" name="newScript()" content="payment.expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_mLZa8It7Ee6i7cnMagUeXw" name="payment" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Payment"/>
           </condition>
         </elements>
         <elements xmi:type="process:IntermediateCatchTimerEvent" xmi:id="_BQR9wIkwEe6WeYpf0W8c6w" name="set Booking Expired" outgoing="_mUl98IkwEe6WeYpf0W8c6w" incoming="_E1MuQItaEe6F6N-2eampTg">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_BQVoIYkwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_BQVoIIkwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_BQVoIokwEe6WeYpf0W8c6w" name="" content="" returnTypeFixed="true"/>
-          <condition xmi:type="expression:Expression" xmi:id="_DOEgIIkwEe6WeYpf0W8c6w" name="newScript()" content="booking_expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-            <referencedElements xmi:type="process:Data" xmi:id="_qXz-kItbEe6F6N-2eampTg" name="booking_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg"/>
+          <condition xmi:type="expression:Expression" xmi:id="_DOEgIIkwEe6WeYpf0W8c6w" name="newScript()" content="booking.expired_at" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ibUbkIt7Ee6i7cnMagUeXw" name="booking" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Booking"/>
           </condition>
         </elements>
       </elements>
@@ -5349,7 +5362,7 @@
         </defaultValue>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="_EqJVkIcMEe67ydDxKxP2FQ" name="payment" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Payment">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_EqJVkYcMEe67ydDxKxP2FQ" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_V-JksIuFEe6i7cnMagUeXw" name="initPayment()" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="fww.model.Payment"/>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="_FhqMYIcMEe67ydDxKxP2FQ" name="ticket" dataType="_0Zm0U4U7Ee60zYC5i_hnmg" className="fww.model.Ticket">
         <defaultValue xmi:type="expression:Expression" xmi:id="_FhqMYYcMEe67ydDxKxP2FQ" name="" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object"/>
@@ -5370,9 +5383,9 @@
         <defaultValue xmi:type="expression:Expression" xmi:id="_7XpZQYjpEe6nMdjcWuvY9A" content="" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List"/>
       </data>
       <data xmi:type="process:Data" xmi:id="_LYAegItbEe6F6N-2eampTg" name="payment_expired_at" dataType="_0Zm0TIU7Ee60zYC5i_hnmg">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_LYAegYtbEe6F6N-2eampTg" name="init_payment_expired_at()" content="payment_expired" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.Date">
-          <referencedElements xmi:type="process:ContractInput" xmi:id="_SMK58ItbEe6F6N-2eampTg" name="payment_expired" type="OFFSETDATETIME">
-            <mapping xmi:type="process:ContractInputMapping" xmi:id="_SMK58YtbEe6F6N-2eampTg"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_LYAegYtbEe6F6N-2eampTg" name="2023/11/25 22:24:42" content="Calendar calendar = payment_expired.toCalendar()&#xA;calendar.getTime();" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.Date" returnTypeFixed="true">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="__o6IkIumEe6IKofDUv85EA" name="payment_expired" type="OFFSETDATETIME">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="__o6IkYumEe6IKofDUv85EA"/>
           </referencedElements>
         </defaultValue>
       </data>
