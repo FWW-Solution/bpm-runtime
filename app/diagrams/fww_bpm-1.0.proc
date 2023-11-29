@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:parameter="http://www.bonitasoft.org/ns/studio/parameter" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_0ZmNEIU7Ee60zYC5i_hnmg" name="fww_bpm" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_0Zm0IIU7Ee60zYC5i_hnmg" name="passenger_flow">
       <elements xmi:type="process:Lane" xmi:id="_0Zm0IYU7Ee60zYC5i_hnmg" name="Application" actor="_cjh6YIU8Ee60zYC5i_hnmg">
@@ -1299,6 +1299,39 @@
         <condition xmi:type="expression:Expression" xmi:id="_4o05kobbEe6NpJx4hoX1Ww" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <actors xmi:type="process:Actor" xmi:id="_cjh6YIU8Ee60zYC5i_hnmg" name="Application" initiator="true"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_MEa7UI5KEe6nZbJpVakiOg" name="Qualification" version="7.12.0-004" username="ADMIN">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_MEfMwI5KEe6nZbJpVakiOg">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_MEfMwY5KEe6nZbJpVakiOg" name="Application">
+            <groups xmi:type="actormapping:Groups" xmi:id="_MEfMwo5KEe6nZbJpVakiOg"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_MEfMw45KEe6nZbJpVakiOg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_MEfMxI5KEe6nZbJpVakiOg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_MEfMxY5KEe6nZbJpVakiOg">
+              <user>Application</user>
+            </users>
+          </actorMapping>
+        </actorMappings>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_MEa7UY5KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-post" definitionVersion="1.3.0" implementationId="rest-post-impl" implementationVersion="1.3.2"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_MEa7Uo5KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-get" definitionVersion="1.2.0" implementationId="rest-get-impl" implementationVersion="1.3.2"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_MEa7U45KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-put" definitionVersion="1.3.0" implementationId="rest-put-impl" implementationVersion="1.3.2"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_MEbiYI5KEe6nZbJpVakiOg" id="CONNECTOR">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_MEbiYY5KEe6nZbJpVakiOg" id="rest-post-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_MEbiYo5KEe6nZbJpVakiOg" key="rest-post-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_MEbiY45KEe6nZbJpVakiOg" id="rest-get-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_MEbiZI5KEe6nZbJpVakiOg" key="rest-get-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_MEbiZY5KEe6nZbJpVakiOg" id="rest-put-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_MEbiZo5KEe6nZbJpVakiOg" key="rest-put-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_MEbiZ45KEe6nZbJpVakiOg" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_MEbiaI5KEe6nZbJpVakiOg" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_MEbiaY5KEe6nZbJpVakiOg" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_MEbiao5KEe6nZbJpVakiOg" id="GROOVY_SCRIPT"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_MEfz0I5KEe6nZbJpVakiOg" name="baseUrl_dukcapil" value="https://mock.apidog.com/m1/409095-0-default" typeClassname="java.lang.String"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_MEfz0Y5KEe6nZbJpVakiOg" name="baseUrl_peduli_lindungi" value="https://mock.apidog.com/m1/409095-0-default" typeClassname="java.lang.String"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_MEfz0o5KEe6nZbJpVakiOg" name="baseUrl_wrapper" value="http://bpm-wrapper:8080" typeClassname="java.lang.String"/>
+      </configurations>
       <parameters xmi:type="parameter:Parameter" xmi:id="_lrIEIIVUEe6tqtrNPEic8A" name="baseUrl_dukcapil" typeClassname="java.lang.String"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_oEu_0IVUEe6tqtrNPEic8A" name="baseUrl_peduli_lindungi" typeClassname="java.lang.String"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_q1oaIIVUEe6tqtrNPEic8A" name="baseUrl_wrapper" typeClassname="java.lang.String"/>
@@ -5508,6 +5541,47 @@
       </connections>
       <actors xmi:type="process:Actor" xmi:id="_3M_oIIVDEe6tqtrNPEic8A" name="Application" initiator="true"/>
       <actors xmi:type="process:Actor" xmi:id="_EqcrwIVEEe6tqtrNPEic8A" name="User"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_fAN28I5KEe6nZbJpVakiOg" name="Qualification" version="7.12.0-004" username="ADMIN">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_fAN2_45KEe6nZbJpVakiOg">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_fAN3AI5KEe6nZbJpVakiOg" name="Application">
+            <groups xmi:type="actormapping:Groups" xmi:id="_fAN3AY5KEe6nZbJpVakiOg"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_fAN3Ao5KEe6nZbJpVakiOg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_fAN3A45KEe6nZbJpVakiOg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_fAN3BI5KEe6nZbJpVakiOg">
+              <user>Application</user>
+            </users>
+          </actorMapping>
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_fAN3BY5KEe6nZbJpVakiOg" name="User">
+            <groups xmi:type="actormapping:Groups" xmi:id="_fAN3Bo5KEe6nZbJpVakiOg"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_fAN3B45KEe6nZbJpVakiOg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_fAN3CI5KEe6nZbJpVakiOg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_fAN3CY5KEe6nZbJpVakiOg">
+              <user>User</user>
+            </users>
+          </actorMapping>
+        </actorMappings>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_fAN28Y5KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-post" definitionVersion="1.3.0" implementationId="rest-post-impl" implementationVersion="1.3.2"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_fAN28o5KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-get" definitionVersion="1.2.0" implementationId="rest-get-impl" implementationVersion="1.3.2"/>
+        <definitionMappings xmi:type="configuration:DefinitionMapping" xmi:id="_fAN2845KEe6nZbJpVakiOg" type="CONNECTOR" definitionId="rest-put" definitionVersion="1.3.0" implementationId="rest-put-impl" implementationVersion="1.3.2"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_fAN29I5KEe6nZbJpVakiOg" id="CONNECTOR">
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_fAN29Y5KEe6nZbJpVakiOg" id="rest-post-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_fAN29o5KEe6nZbJpVakiOg" key="rest-post-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_fAN2945KEe6nZbJpVakiOg" id="rest-get-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_fAN2-I5KEe6nZbJpVakiOg" key="rest-get-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+          <children xmi:type="configuration:FragmentContainer" xmi:id="_fAN2-Y5KEe6nZbJpVakiOg" id="rest-put-impl-1.3.2">
+            <fragments xmi:type="configuration:Fragment" xmi:id="_fAN2-o5KEe6nZbJpVakiOg" key="rest-put-impl -- 1.3.2" value="bonita-connector-rest-1.3.2.jar" type="CONNECTOR"/>
+          </children>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_fAN2-45KEe6nZbJpVakiOg" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_fAN2_I5KEe6nZbJpVakiOg" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_fAN2_Y5KEe6nZbJpVakiOg" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_fAN2_o5KEe6nZbJpVakiOg" id="GROOVY_SCRIPT"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_fAN3Co5KEe6nZbJpVakiOg" name="baseUrl" value="http://bpm-wrapper:8080/" typeClassname="java.lang.String"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_fAOeAI5KEe6nZbJpVakiOg" name="baseUrlPeduliLindungi" value="https://mock.apidog.com/m1/409095-0-default" typeClassname="java.lang.String"/>
+        <parameters xmi:type="parameter:Parameter" xmi:id="_fAOeAY5KEe6nZbJpVakiOg" name="baseUrlMadtrains" value="https://mock.apidog.com/m1/409095-0-default" typeClassname="java.lang.String"/>
+      </configurations>
       <parameters xmi:type="parameter:Parameter" xmi:id="_NHwF8IcKEe67ydDxKxP2FQ" name="baseUrl" typeClassname="java.lang.String"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_OyH9EIcKEe67ydDxKxP2FQ" name="baseUrlPeduliLindungi" typeClassname="java.lang.String"/>
       <parameters xmi:type="parameter:Parameter" xmi:id="_kCqoQIdnEe67ydDxKxP2FQ" name="baseUrlMadtrains" typeClassname="java.lang.String"/>
